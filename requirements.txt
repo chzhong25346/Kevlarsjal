@@ -1,0 +1,3 @@
+mysql db
+python 3.5
+falpha_vantage.timeseries
