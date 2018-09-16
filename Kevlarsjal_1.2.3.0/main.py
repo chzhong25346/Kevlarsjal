@@ -44,5 +44,5 @@ if __name__ == '__main__':
         logger.debug('updating by industry.. %s %s %s', index_name,indCode,type)
         update_by_industry(index_name,indCode,type)
 
-    logger.info( "Program took %s seconds to run", (time.time() - start_time))
+    logger.info( "Program took %s minutes to run", ((time.time() - start_time)/60))
     # update_index('tsxci')

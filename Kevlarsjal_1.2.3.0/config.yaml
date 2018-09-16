@@ -1,6 +1,6 @@
 mysql:
-  username: "colin"
-  password: "123456a"
-  ip: "192.168.0.18"
+  username: "root"
+  password: "123456"
+  ip: "localhost"
   name: "tsxci_daily"
   port: 3306
