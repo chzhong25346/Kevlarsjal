@@ -9,18 +9,6 @@ logger = logging.getLogger('main')
 import yaml
 from core import *
 
-start_time = time.time()
-
-# Arguments Parser
-parser = argparse.ArgumentParser(description="Kevlarsjal reads index and store data")
-group = parser.add_mutually_exclusive_group()
-group.add_argument("-a","--all",help="Update all",action="store_true")
-group.add_argument("-i", "--industry",help="Update by Industry Code",action="store_true")
-parser.add_argument("index", help="index, ej: tsxci")
-parser.add_argument("ic", help="None if update all. Industry Code sigle word(first 3cha), multi-word(1st cha)")
-parser.add_argument("type", help="query type, full or compact")
-args = parser.parse_args()
-
 
 # Logging setup
 def setup_logging(default_path='config.yaml', default_level=logging.INFO):
@@ -34,6 +22,17 @@ def setup_logging(default_path='config.yaml', default_level=logging.INFO):
 
 
 if __name__ == '__main__':
+    start_time = time.time()
+
+    # Arguments Parser
+    parser = argparse.ArgumentParser(description="Kevlarsjal reads index and store data")
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument("-a","--all",help="Update all",action="store_true")
+    group.add_argument("-i", "--industry",help="Update by Industry Code",action="store_true")
+    parser.add_argument("index", help="index, ej: tsxci")
+    parser.add_argument("ic", help="None if update all. Industry Code sigle word(first 3cha), multi-word(1st cha)")
+    parser.add_argument("type", help="query type, full or compact")
+    args = parser.parse_args()
     yaml_path = 'log/config.yaml'
     setup_logging(yaml_path)
 
