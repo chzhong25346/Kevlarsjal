@@ -1,9 +1,11 @@
-import sys
+import os,sys
 from db.mysql import create_dbengine
 from db.write import df_to_sql
 from fetch.StockIndex import get_index_table
 from util.indCode import get_indCode,indCode_to_tickers
 from util.query_data import get_df_bySec,get_df_byTicker
+
+sys.path.insert(0, os.path.abspath(".."))
 
 def update_all(index_name,type='compact'):
     '''
