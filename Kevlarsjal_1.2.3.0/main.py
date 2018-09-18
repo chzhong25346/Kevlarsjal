@@ -22,6 +22,7 @@ def setup_logging(default_path='config.yaml', default_level=logging.INFO):
 
 
 if __name__ == '__main__':
+    sys.path.append(os.path.realpath('..'))
     start_time = time.time()
 
     # Arguments Parser
