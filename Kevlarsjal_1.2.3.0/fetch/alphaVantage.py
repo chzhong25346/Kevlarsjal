@@ -21,6 +21,7 @@ def get_daily_adjusted(ticker,ts,size,today_only):
     df, meta_data = ts.get_daily_adjusted(ticker,outputsize=size)
     df.columns = ["open","high","low","close","adjusted close","volume","dividend amount","split coefficient"]
     df = df[["open","high","low","close","adjusted close","volume"]]
+    # print(df.head())
     df.index.name = 'date'
     df.index = pd.to_datetime(df.index)
     if today_only:

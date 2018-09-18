@@ -1,0 +1,80 @@
+2018-09-17 21:32:34,331 - main - DEBUG - updating by industry.. tsxci bs compact
+2018-09-17 21:32:34,332 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-17 21:32:34,360 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-17 21:32:34,435 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-17 21:32:34,471 - main.indCode - DEBUG - Generated 55 Industry codes
+2018-09-17 21:32:34,543 - main.indCode - DEBUG - Found 2 stocks in bs
+2018-09-17 21:32:34,545 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-17 21:32:49,546 - main.query_data - DEBUG - Fetching rba.to
+2018-09-17 21:33:05,600 - main.query_data - DEBUG - Fetching tri.to
+2018-09-17 21:33:06,279 - main - INFO - Program took 0.5327804724375407 minutes to run
+2018-09-17 21:34:33,196 - main - DEBUG - updating by industry.. tsxci bs compact
+2018-09-17 21:34:33,197 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-17 21:34:33,221 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-17 21:34:33,451 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-17 21:34:33,487 - main.indCode - DEBUG - Generated 55 Industry codes
+2018-09-17 21:34:33,558 - main.indCode - DEBUG - Found 2 stocks in bs
+2018-09-17 21:34:33,559 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-17 21:34:48,561 - main.query_data - DEBUG - Fetching rba.to
+2018-09-17 21:34:54,196 - main.write - DEBUG - writing table rba.to
+2018-09-17 21:35:09,197 - main.query_data - DEBUG - Fetching tri.to
+2018-09-17 21:35:12,668 - main.write - DEBUG - writing table tri.to
+2018-09-17 21:35:12,668 - main - INFO - Program took 0.6580042997996013 minutes to run
+2018-09-17 23:12:39,028 - main - DEBUG - updating by industry.. tsxci bs full
+2018-09-17 23:12:39,030 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-17 23:12:39,053 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-17 23:12:39,127 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-17 23:12:39,160 - main.indCode - DEBUG - Generated 55 Industry codes
+2018-09-17 23:12:39,233 - main.indCode - DEBUG - Found 2 stocks in bs
+2018-09-17 23:12:39,235 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-17 23:12:54,235 - main.query_data - DEBUG - Fetching rba.to
+2018-09-17 23:13:16,168 - main.query_data - DEBUG - Fetching tri.to
+2018-09-17 23:13:20,904 - main - INFO - Program took 0.6980565905570983 minutes to run
+2018-09-17 23:14:03,550 - main - DEBUG - updating by industry.. tsxci bs full
+2018-09-17 23:14:03,551 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-17 23:14:03,579 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-17 23:14:03,669 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-17 23:14:03,710 - main.indCode - DEBUG - Generated 55 Industry codes
+2018-09-17 23:14:03,788 - main.indCode - DEBUG - Found 2 stocks in bs
+2018-09-17 23:14:03,790 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-17 23:14:18,791 - main.query_data - DEBUG - Fetching rba.to
+2018-09-17 23:14:34,982 - main.write - DEBUG - writing table rba.to
+2018-09-17 23:14:49,983 - main.query_data - DEBUG - Fetching tri.to
+2018-09-17 23:15:06,967 - main.write - DEBUG - writing table tri.to
+2018-09-17 23:15:06,967 - main - INFO - Program took 1.057077129681905 minutes to run
+2018-09-17 23:18:07,851 - main - DEBUG - updating by industry.. tsxci bs full
+2018-09-17 23:18:07,852 - main.mysql - DEBUG - connecting to mysql://colin:123456a@192.168.0.18:3306/tsxci_daily?charset=utf8
+2018-09-17 23:18:07,876 - main.mysql - DEBUG - connecting to mysql://colin:123456a@192.168.0.18:3306/tsxci_daily?charset=utf8
+2018-09-17 23:18:07,986 - main.mysql - DEBUG - connecting to mysql://colin:123456a@192.168.0.18:3306/tsxci_daily?charset=utf8
+2018-09-17 23:18:08,043 - main.indCode - DEBUG - Generated 55 Industry codes
+2018-09-17 23:18:08,114 - main.indCode - DEBUG - Found 2 stocks in bs
+2018-09-17 23:18:08,116 - main.mysql - DEBUG - connecting to mysql://colin:123456a@192.168.0.18:3306/tsxci_daily?charset=utf8
+2018-09-17 23:18:23,118 - main.query_data - DEBUG - Fetching rba.to
+2018-09-17 23:18:26,245 - main.write - DEBUG - writing table rba.to
+2018-09-17 23:18:41,247 - main.query_data - DEBUG - Fetching tri.to
+2018-09-17 23:18:44,599 - main.write - DEBUG - writing table tri.to
+2018-09-17 23:18:44,599 - main - INFO - Program took 0.6126017053922017 minutes to run
+2018-09-17 23:22:09,239 - main - DEBUG - updating by industry.. tsxci bs full
+2018-09-17 23:22:09,240 - main.mysql - DEBUG - connecting to mysql://colin:123456a@192.168.0.18:3306/tsxci_daily?charset=utf8
+2018-09-17 23:22:09,263 - main.mysql - DEBUG - connecting to mysql://colin:123456a@192.168.0.18:3306/tsxci_daily?charset=utf8
+2018-09-17 23:22:09,368 - main.mysql - DEBUG - connecting to mysql://colin:123456a@192.168.0.18:3306/tsxci_daily?charset=utf8
+2018-09-17 23:22:09,437 - main.indCode - DEBUG - Generated 55 Industry codes
+2018-09-17 23:22:09,510 - main.indCode - DEBUG - Found 2 stocks in bs
+2018-09-17 23:22:09,511 - main.mysql - DEBUG - connecting to mysql://colin:123456a@192.168.0.18:3306/tsxci_daily?charset=utf8
+2018-09-17 23:22:24,513 - main.query_data - DEBUG - Fetching rba.to
+2018-09-17 23:22:27,378 - main.write - DEBUG - writing table rba.to
+2018-09-17 23:22:42,379 - main.query_data - DEBUG - Fetching tri.to
+2018-09-17 23:22:44,678 - main.write - DEBUG - writing table tri.to
+2018-09-17 23:22:44,678 - main - INFO - Program took 0.5907837907473247 minutes to run
+2018-09-17 23:24:13,520 - main - DEBUG - updating by industry.. tsxci bs full
+2018-09-17 23:24:13,522 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-17 23:24:13,545 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-17 23:24:13,722 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-17 23:24:13,757 - main.indCode - DEBUG - Generated 55 Industry codes
+2018-09-17 23:24:13,830 - main.indCode - DEBUG - Found 2 stocks in bs
+2018-09-17 23:24:13,832 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-17 23:24:28,833 - main.query_data - DEBUG - Fetching rba.to
+2018-09-17 23:24:43,772 - main.write - DEBUG - writing table rba.to
+2018-09-17 23:24:58,773 - main.query_data - DEBUG - Fetching tri.to
+2018-09-17 23:25:11,167 - main.write - DEBUG - writing table tri.to
+2018-09-17 23:25:11,167 - main - INFO - Program took 0.9609049598375956 minutes to run

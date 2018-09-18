@@ -12,8 +12,9 @@ def create_dbengine():
     try:
         with open("config.yaml", 'r') as ymlfile:
             cfg = yaml.load(ymlfile)
-    except Exception:
+    except Exception as e:
         logger.error('No DB connection info or config file not found!')
+        logger.error(e)
         sys.exit(1)
 
     db_username = cfg['mysql']['username']
