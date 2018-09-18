@@ -1,0 +1,7 @@
+mysql:
+  username: "root"
+  password: "123456"
+  ip: "localhost"
+  port: 3306
+  tsxci_daily_db: "tsxci_daily"
+  tsxci_intraday_db: 'tsxci_intraday'
