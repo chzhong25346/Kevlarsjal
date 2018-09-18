@@ -70,3 +70,55 @@
 2018-09-18 10:37:27,986 - main.query_data - DEBUG - Fetching tri.to
 2018-09-18 10:37:44,667 - main.write - DEBUG - writing table tri.to
 2018-09-18 10:37:44,667 - main - INFO - Program took 0.8864006996154785 minutes to run
+2018-09-18 11:05:17,789 - main - DEBUG - updating by industry.. tsxci agr full
+2018-09-18 11:05:17,790 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-18 11:05:17,813 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-18 11:05:17,991 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-18 11:05:18,027 - main.indCode - DEBUG - Generated 55 Industry codes
+2018-09-18 11:05:18,100 - main.indCode - DEBUG - Found 1 stocks in agr
+2018-09-18 11:05:18,102 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-18 11:05:33,103 - main.query_data - DEBUG - Fetching ntr.to
+2018-09-18 11:05:33,747 - main.alphaVantage - ERROR - Error on fetching ntr.to, Stop program!
+2018-09-18 11:05:33,747 - main.alphaVantage - ERROR - 'DataFrame' object is not callable
+2018-09-18 11:05:59,794 - main - DEBUG - updating by industry.. tsxci agr full
+2018-09-18 11:05:59,795 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-18 11:05:59,819 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-18 11:05:59,893 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-18 11:05:59,927 - main.indCode - DEBUG - Generated 55 Industry codes
+2018-09-18 11:05:59,999 - main.indCode - DEBUG - Found 1 stocks in agr
+2018-09-18 11:06:00,001 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-18 11:06:15,003 - main.query_data - DEBUG - Fetching ntr.to
+2018-09-18 11:06:15,664 - main.alphaVantage - ERROR - Error on fetching ntr.to, Stop program!
+2018-09-18 11:06:15,665 - main.alphaVantage - ERROR - 'DataFrame' object is not callable
+2018-09-18 11:06:44,921 - main - DEBUG - updating by industry.. tsxci agr full
+2018-09-18 11:06:44,923 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-18 11:06:44,945 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-18 11:06:45,019 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-18 11:06:45,052 - main.indCode - DEBUG - Generated 55 Industry codes
+2018-09-18 11:06:45,124 - main.indCode - DEBUG - Found 1 stocks in agr
+2018-09-18 11:06:45,126 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-18 11:07:00,127 - main.query_data - DEBUG - Fetching ntr.to
+2018-09-18 11:07:02,093 - main.alphaVantage - ERROR - Error on fetching ntr.to, Stop program!
+2018-09-18 11:07:02,094 - main.alphaVantage - ERROR - Length mismatch: Expected axis has 180 elements, new values have 8 elements
+2018-09-18 11:07:36,082 - main - DEBUG - updating by industry.. tsxci agr full
+2018-09-18 11:07:36,083 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-18 11:07:36,106 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-18 11:07:36,180 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-18 11:07:36,214 - main.indCode - DEBUG - Generated 55 Industry codes
+2018-09-18 11:07:36,287 - main.indCode - DEBUG - Found 1 stocks in agr
+2018-09-18 11:07:36,288 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-18 11:07:51,290 - main.query_data - DEBUG - Fetching ntr.to
+2018-09-18 11:07:51,949 - main.alphaVantage - ERROR - Error on fetching ntr.to, Stop program!
+2018-09-18 11:07:51,950 - main.alphaVantage - ERROR - Length mismatch: Expected axis has 180 elements, new values have 8 elements
+2018-09-18 11:07:51,977 - main.write - ERROR - 'NoneType' object has no attribute 'to_sql'
+2018-09-18 11:07:51,978 - main - INFO - Program took 0.26506516138712566 minutes to run
+2018-09-18 11:08:49,784 - main - DEBUG - updating by industry.. tsxci agr full
+2018-09-18 11:08:49,786 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-18 11:08:49,808 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-18 11:08:49,882 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-18 11:08:49,916 - main.indCode - DEBUG - Generated 55 Industry codes
+2018-09-18 11:08:49,990 - main.indCode - DEBUG - Found 1 stocks in agr
+2018-09-18 11:08:49,992 - main.mysql - DEBUG - connecting to mysql://root:123456@localhost:3306/tsxci_daily?charset=utf8
+2018-09-18 11:09:04,993 - main.query_data - DEBUG - Fetching ntr.to
+2018-09-18 11:09:09,925 - main.write - DEBUG - writing table ntr.to
+2018-09-18 11:09:09,926 - main - INFO - Program took 0.33583587408065796 minutes to run

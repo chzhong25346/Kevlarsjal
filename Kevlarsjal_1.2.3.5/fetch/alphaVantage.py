@@ -15,7 +15,7 @@ def get_av_daily_adjusted(ticker,size='compact',today_only=False):
     except Exception as e:
         logger.error('Error on fetching %s, Stop program!', ticker )
         logger.error(e)
-        sys.exit(1)
+        # sys.exit(1)
 
 
 def get_daily_adjusted(ticker,ts,size,today_only):
@@ -24,10 +24,9 @@ def get_daily_adjusted(ticker,ts,size,today_only):
     return formated df
     '''
     data, meta_data = ts.get_daily_adjusted(ticker,outputsize=size)
-    df = pd.DataFrame.from_dict(data,orient='index')
+    df = pd.DataFrame.from_dict(data).T
     df.columns = ["open","high","low","close","adjusted close","volume","dividend amount","split coefficient"]
     df = df[["open","high","low","close","adjusted close","volume"]]
-    df.index.name = 'date'
     df.index = pd.to_datetime(df.index)
     if today_only:
         df = df.loc[df.index.max()].to_frame().T
