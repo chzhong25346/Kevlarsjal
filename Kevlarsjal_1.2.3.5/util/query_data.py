@@ -27,6 +27,10 @@ def query_and_write(ticker_list,intraday,size='full',today_only=False,sleep_time
     '''
     Looping through ticker list, query df and write it to DB immediately
     '''
+    if (intraday == 'none'): # daily
+        engine = create_dbengine(db='tsxci_daily_db')
+    elif (intraday != 'none'): # intraday
+        engine = create_dbengine(db='tsxci_intraday_db')
 
     try:
         # Looping through the ticker list
@@ -38,11 +42,9 @@ def query_and_write(ticker_list,intraday,size='full',today_only=False,sleep_time
             df = get_av(ticker,size,today_only,intraday)
             if (intraday == 'none'): # daily
                 # writing df to db
-                engine = create_dbengine(db='tsxci_daily_db')
                 df_to_sql({ticker:df},engine)
             elif (intraday != 'none'): # intraday
                 # writing df to db
-                engine = create_dbengine(db='tsxci_intraday_db')
                 df_to_sql({ticker:df},engine)
 
     except Exception:
