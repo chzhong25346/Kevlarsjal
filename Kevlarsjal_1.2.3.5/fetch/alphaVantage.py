@@ -29,7 +29,7 @@ def get_daily_adjusted(ticker,ts,size,today_only):
     '''
     data, meta_data = ts.get_daily_adjusted(ticker,outputsize=size)
     df = pd.DataFrame.from_dict(data).T
-    df = df.drop(columns=["7. dividend amount","8. split coefficient"])
+    df = df.drop(["7. dividend amount","8. split coefficient"], axis=1)
     df.columns = ["open","high","low","close","adjusted close","volume"]
     df = df[["open","high","low","close","adjusted close","volume"]]
     df.index = pd.to_datetime(df.index)
