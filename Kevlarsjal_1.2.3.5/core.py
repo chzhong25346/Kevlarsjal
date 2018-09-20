@@ -15,13 +15,13 @@ def update_all(index_name,intraday,type='compact'):
     '''
     data = get_index_table(index_name) # All tickers in DF format
     if (type=='compact' and intraday=='none'):
-        df_dic = get_df_byTicker(data,size='compact',today_only=True,sleep_timer=15,intraday='none')
+        df_dic = get_df_byTicker(data,intraday='none',size='compact',today_only=True,sleep_timer=15)
     elif (type=='full' and intraday=='none'):
-        df_dic = get_df_byTicker(data,size='full',today_only=False,sleep_timer=15,intraday='none')
+        df_dic = get_df_byTicker(data,intraday='none',size='full',today_only=False,sleep_timer=15)
     elif (type=='compact' and intraday !='none'):
-        df_dic = get_df_byTicker(data,size='compact',today_only=True,sleep_timer=15,intraday='30min')
+        df_dic = get_df_byTicker(data,intraday,size='compact',today_only=True,sleep_timer=15)
     elif (type=='full' and intraday !='none'):
-        df_dic = get_df_byTicker(data,size='full',today_only=False,sleep_timer=15,intraday='30min')
+        df_dic = get_df_byTicker(data,intraday,size='full',today_only=False,sleep_timer=15)
     else:
         pass
 
@@ -35,12 +35,12 @@ def update_by_industry(index_name,indCode,intraday,type='full'):
     data = get_index_table(index_name)
     df = indCode_to_tickers(data,indCode)  # ticers in that Industry in DF format
     if (type=='compact' and intraday=='none'):
-        df_dic = get_df_bySec(df,size='compact',today_only=True,sleep_timer=15,intraday='none')
+        df_dic = get_df_bySec(df,intraday='none',size='compact',today_only=True,sleep_timer=15)
     elif (type=='full' and intraday=='none'):
-        df_dic = get_df_bySec(df,size='full',today_only=False,sleep_timer=15,intraday='none')
+        df_dic = get_df_bySec(df,intraday='none',size='full',today_only=False,sleep_timer=15)
     elif (type=='compact' and intraday!='none'):
-        df_dic = get_df_bySec(df,size='compact',today_only=True,sleep_timer=15,intraday='30min')
+        df_dic = get_df_bySec(df,intraday,size='compact',today_only=True,sleep_timer=15)
     elif (type=='full' and intraday!='none'):
-        df_dic = get_df_bySec(df,size='full',today_only=False,sleep_timer=15,intraday='30min')
+        df_dic = get_df_bySec(df,intraday,size='full',today_only=False,sleep_timer=15)
     else:
         pass

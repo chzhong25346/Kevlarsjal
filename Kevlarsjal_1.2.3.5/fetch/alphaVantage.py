@@ -54,8 +54,7 @@ def get_intraday(ticker,ts,size,intraday):
     if (size == 'compact'):
         # print(dt.today().strftime("%Y-%m-%d"))
         try:
-            df = df.loc[dt.today().strftime("%Y-%m-%d")]
-            return df
+            return df.loc[dt.today().strftime("%Y-%m-%d")]
         except Exception as e:
             logger.debug(e)
             pass

@@ -18,7 +18,7 @@ def df_to_sql(dic,engine):
                     value.to_sql(key, engine, index=True,index_label='date',if_exists='append')
                     logger.debug('writing table %s', key)
                 except Exception as e:
-                    pass
+                    logger.error(e)
             else:
                 if(key != 'tsxci'):
                     value.to_sql(key, engine, index=True,index_label='date',if_exists='append')

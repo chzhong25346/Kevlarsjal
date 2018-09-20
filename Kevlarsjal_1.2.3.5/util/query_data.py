@@ -7,7 +7,7 @@ from db.write import df_to_sql
 from db.mysql import create_dbengine
 
 
-def get_df_bySec(sec_code,size,today_only,sleep_timer,intraday):
+def get_df_bySec(sec_code,intraday,size,today_only,sleep_timer):
     '''
     extract ticker_list from sec_code. symbols of that sector; query and write
     '''
@@ -15,7 +15,7 @@ def get_df_bySec(sec_code,size,today_only,sleep_timer,intraday):
     query_and_write(ticker_list,intraday,size,today_only,sleep_timer)
 
 
-def get_df_byTicker(data,size,today_only,sleep_timer,intraday):
+def get_df_byTicker(data,intraday,size,today_only,sleep_timer):
     '''
     extract ticker_list from data. That's all symbols; query and write
     '''

@@ -7,7 +7,9 @@ import logging
 import logging.config
 logger = logging.getLogger('main')
 import yaml
+import math
 from core import *
+from log.mail import sendMail
 
 
 # Logging setup
@@ -47,4 +49,8 @@ if __name__ == '__main__':
         logger.debug('updating by industry.. %s %s %s %s', index_name,indCode,type,intraday)
         update_by_industry(index_name,indCode,intraday,type)
 
-    logger.info( "Program took %s minutes to run", ((time.time() - start_time)/60))
+    spendTime = math.ceil((time.time() - start_time)/60)
+    sub = 'Task Completed: .. %s %s %s %s' % (index_name,indCode,type,intraday)
+    cont = 'Program took ' + str(spendTime) + ' minutes to run'
+    sendMail(sub,cont)
+    logger.info(cont)
