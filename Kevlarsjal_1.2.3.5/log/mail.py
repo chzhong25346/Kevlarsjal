@@ -31,9 +31,9 @@ def sendMail(sub,cont):
     content=cont # content
     # compose the email. probably should use the email python module
     mailtext='From: '+replyto+'\nTo: '+sendtoShow+'\n'
-    print(content)
     mailtext=mailtext+'Subject:'+subject+'\n'+content
     # send the email
     s.sendmail(replyto, sendto, mailtext)
+    logger.debug('email sent.')
     # we're done
     rslt=s.quit()

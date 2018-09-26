@@ -32,6 +32,7 @@ if __name__ == '__main__':
     group = parser.add_mutually_exclusive_group()
     group.add_argument("-a","--all",help="Update all",action="store_true")
     group.add_argument("-i", "--industry",help="Update by Industry Code",action="store_true")
+    group.add_argument("-r", "--report",help="Reporting",action="store_true")
     parser.add_argument("index", help="index, ej: tsxci")
     parser.add_argument("ic", help="Industry Code, default=none")
     parser.add_argument("type", help="query type, full or compact")
@@ -48,9 +49,12 @@ if __name__ == '__main__':
     elif(args.industry):
         logger.debug('updating by industry.. %s %s %s %s', index_name,indCode,type,intraday)
         update_by_industry(index_name,indCode,intraday,type)
+    elif(args.report):
+        logger.debug('analysing entire index.. %s %s %s %s', index_name,indCode,type,intraday)
+        reporting(index_name,indCode,intraday,type)
 
     spendTime = math.ceil((time.time() - start_time)/60)
     sub = 'Task Completed: .. %s %s %s %s' % (index_name,indCode,type,intraday)
     cont = 'Program took ' + str(spendTime) + ' minutes to run'
-    sendMail(sub,cont)
+    # sendMail(sub,cont)
     logger.info(cont)
