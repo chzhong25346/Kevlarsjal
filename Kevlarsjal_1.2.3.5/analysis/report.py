@@ -51,7 +51,7 @@ def report(index_name):
     tname = dt.datetime.today().strftime("%m-%d-%Y")
     # write df into db
     report_df_to_sql(tname,report_df,engine_report)
-    # email(tname)
+    email(tname)
 
 
 
