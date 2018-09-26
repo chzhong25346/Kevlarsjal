@@ -43,7 +43,7 @@ def report(index_name):
         # decide if known pattern append to df
         report_df = report_df.append(find_pattern(equity,df),ignore_index=True)
     # ticker columns as index
-    report_df.set_index('ticker', inplace=True)
+    # report_df.set_index('ticker', inplace=True)
     # grouby using first() and NaN to Zero
     report_df = groupby_na_to_zero(report_df, 'ticker')
     report_df = type_to_int(report_df,'pattern')

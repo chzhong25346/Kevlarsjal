@@ -8,5 +8,5 @@ mysql:
   tsxci_report_db: 'tsxci_report'
 gmail:
   username: "intefalla@gmail.com"
-  password: "xxxx"
-  recipient : "xxxx@gmail.com"
+  password: "xxx"
+  recipient : "xxx@gmail.com"
