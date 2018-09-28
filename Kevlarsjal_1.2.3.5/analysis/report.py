@@ -38,17 +38,17 @@ def report(index_name):
         # read daily db return df
         df = read_table_df_Engine(ticker_to,engine_dailydb)
         # unusual volume stickers append to df
-        report_df = report_df.append(unusual_volume(equity,df),ignore_index=True,sort=True)
+        report_df = report_df.append(unusual_volume(equity,df),ignore_index=True)
         # unusual trend stickers append to df
-        report_df = report_df.append(trend_potential(equity,df),ignore_index=True,sort=True)
+        report_df = report_df.append(trend_potential(equity,df),ignore_index=True)
         # 52w high/low/trending append to df
-        report_df = report_df.append(fiftytwo_week(equity,df),ignore_index=True,sort=True)
+        report_df = report_df.append(fiftytwo_week(equity,df),ignore_index=True)
         # decide if known pattern append to df
-        report_df = report_df.append(find_pattern(equity,df),ignore_index=True,sort=True)
+        report_df = report_df.append(find_pattern(equity,df),ignore_index=True)
         # added industry name to each ticker, if ticker in index otherwise not add industry
         if not report_df.empty:
             if (equity in report_df['ticker'].unique()):
-                report_df = report_df.append(ind_df,ignore_index=True,sort=True)
+                report_df = report_df.append(ind_df,ignore_index=True)
     # grouby using first() and NaN to Zero
     report_df = groupby_na_to_zero(report_df, 'ticker')
     # pass columns don't want to be type(int), industry must exist after the loop above
