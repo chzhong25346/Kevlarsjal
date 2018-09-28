@@ -32,21 +32,27 @@ def report(index_name):
         equity = ticker
         # ticker + '.to'
         ticker_to = (ticker+'.to').lower()
+        # industry name & ticker
+        ind_df = indexT[(indexT['Symbol']==equity)][['Industry','Symbol']]
+        ind_df.columns = ['Industry','ticker']
         # read daily db return df
         df = read_table_df_Engine(ticker_to,engine_dailydb)
         # unusual volume stickers append to df
-        report_df = report_df.append(unusual_volume(equity,df),ignore_index=True)
+        report_df = report_df.append(unusual_volume(equity,df),ignore_index=True,sort=True)
         # unusual trend stickers append to df
-        report_df = report_df.append(trend_potential(equity,df),ignore_index=True)
+        report_df = report_df.append(trend_potential(equity,df),ignore_index=True,sort=True)
         # 52w high/low/trending append to df
-        report_df = report_df.append(fiftytwo_week(equity,df),ignore_index=True)
+        report_df = report_df.append(fiftytwo_week(equity,df),ignore_index=True,sort=True)
         # decide if known pattern append to df
-        report_df = report_df.append(find_pattern(equity,df),ignore_index=True)
-    # ticker columns as index
-    # report_df.set_index('ticker', inplace=True)
+        report_df = report_df.append(find_pattern(equity,df),ignore_index=True,sort=True)
+        # added industry name to each ticker, if ticker in index otherwise not add industry
+        if not report_df.empty:
+            if (equity in report_df['ticker'].unique()):
+                report_df = report_df.append(ind_df,ignore_index=True,sort=True)
     # grouby using first() and NaN to Zero
     report_df = groupby_na_to_zero(report_df, 'ticker')
-    report_df = type_to_int(report_df,'pattern')
+    # pass columns don't want to be type(int), industry must exist after the loop above
+    report_df = type_to_int(report_df,['pattern','Industry'])
     # tname is today's date
     tname = dt.datetime.today().strftime("%m-%d-%Y")
     # write df into db
