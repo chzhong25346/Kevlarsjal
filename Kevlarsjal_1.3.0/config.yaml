@@ -1,0 +1,13 @@
+mysql:
+  username: "colin"
+  password: "123456a"
+  ip: "192.168.0.18"
+  port: 3306
+  tsxci_daily_db: "tsxci_daily"
+  tsxci_intraday_db: 'tsxci_intraday'
+  tsxci_report_db: 'tsxci_report'
+  tsxci_simulation_db: 'tsxci_simulation'
+gmail:
+  username: "intefalla@gmail.com"
+  password: "xxx"
+  recipient : "xxx@gmail.com"
