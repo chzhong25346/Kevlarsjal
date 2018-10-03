@@ -13,5 +13,5 @@ def delete_by_fieldValue_Engine(tname,field,value,engine):
     try:
         engine.execute('DELETE FROM `{0}` WHERE `{1}` = "{2}";'.format(tname,field,value))
     except Exception as e:
-        logger.debug('no table! - continue')
+        logger.debug('no [%s]table found! - continue', tname)
         return False

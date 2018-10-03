@@ -8,7 +8,7 @@ from db.update import *
 from .trigger import *
 from .quote import *
 from .trade import *
-from .rbreaker import *
+from .rbreaker import rbreaker
 logger = logging.getLogger('main.simulator')
 
 
@@ -66,9 +66,9 @@ def sell_list(df):
     '''
     # trigger.py
     all_out = bear_hivolume_downtrend(df)
-    logger.debug('sell all %s:', ','.join(all_out))
+    logger.debug('sell all: %s', ','.join(all_out))
     half_out = bear_oneyrhigh_doji_downtrend(df)
-    logger.debug('sell half %s:', ','.join(half_out) )
+    logger.debug('sell half: %s', ','.join(half_out) )
     return all_out,half_out
 
 
@@ -79,12 +79,12 @@ def refresh_holding(engine_simulation, engine_dailydb):
     '''
     # read holding table, if False, table not exits - db/read.py
     df_holding = read_table_df_nodrop_Engine('holding',engine_simulation,'ticker')
-    # index is ticker, make it a list
-    tickerL = df_holding.index.tolist()
-    # [{ticker:price},..] get quote of each ticker - quote.py
-    quote_list = get_quote(tickerL,engine_dailydb)
     # table exists
     if df_holding is not False:
+        # index is ticker, make it a list
+        tickerL = df_holding.index.tolist()
+        # [{ticker:price},..] get quote of each ticker - quote.py
+        quote_list = get_quote(tickerL,engine_dailydb)
         # each quote in quote list
         for dict in quote_list:
             # ticker,price in list format retrieved from dict

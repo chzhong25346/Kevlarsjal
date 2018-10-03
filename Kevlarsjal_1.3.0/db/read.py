@@ -14,7 +14,7 @@ def read_table_df(tname):
         df = pd.read_sql_table(tname,engine,index_col='date')
         return df
     except:
-        logger.debug('Cannot read table! - continue')
+        logger.debug('Cannot read [%s] table! - continue', tname)
         return False
 
 
@@ -33,7 +33,7 @@ def read_table_df_Engine(tname,engine):
             df = df[(df.T != 0).any()]
         return df
     except Exception as e:
-        logger.debug('Cannot read table! - continue')
+        logger.debug('Cannot read [%s] table! - continue', tname)
         return False
 
 
@@ -46,5 +46,5 @@ def read_table_df_nodrop_Engine(tname,engine,index_name):
         df = pd.read_sql_table(tname,engine,index_col=index_name,coerce_float=False)
         return df
     except Exception as e:
-        logger.debug('Cannot read table! - continue')
+        logger.debug('Cannot read [%s] table! - continue', tname)
         return False

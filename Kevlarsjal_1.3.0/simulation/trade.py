@@ -70,7 +70,7 @@ def build_transaction(dict,cap,type,engine):
             settlement = abs(price*qty)
         # if no table or no ticker in holding
         else:
-            logger.debug('NO table or NOT holding %s, cannot %s' % (ticker,type))
+            logger.debug('No table or not holding: %s, cannot %s' % (ticker,type))
             return False
     # TRANSACTION dict
     dict_transaction = {'date':date, 'ticker':ticker, 'type':type,'quantity':qty,'price':price,'settlement':settlement}

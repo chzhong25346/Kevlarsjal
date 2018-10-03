@@ -1,19 +1,20 @@
-import logging
 import sys
+import logging
 import yaml,os
+logger = logging.getLogger('main.rbreaker')
 import pandas as pd
 from db.remove import *
 from db.write import *
 from db.read import read_table_df_Engine,read_table_df_nodrop_Engine
-logger = logging.getLogger('main.rbreaker')
 
+os.path.dirname(os.path.realpath(__file__))
 
 def rbreaker(engine_simulation, engine_dailydb):
     try:
         with open("config.yaml", 'r') as ymlfile:
             cfg = yaml.load(ymlfile)
     except Exception as e:
-        logger.error('No DB connection info or config file not found!')
+        logger.error('config.yaml not found or no subscriber entry!')
         logger.error(e)
         sys.exit(1)
 
