@@ -8,6 +8,7 @@ from db.update import *
 from .trigger import *
 from .quote import *
 from .trade import *
+from .rbreaker import *
 logger = logging.getLogger('main.simulator')
 
 
@@ -43,10 +44,9 @@ def simulator(index_name):
         quote_list = get_quote(half_out,engine_dailydb)
         # execute sell order - half holding quntity - trade.py
         execute_order(quote_list,5000,"sell",engine_simulation)
-
-
+    # refreshing holding table
     refresh_holding(engine_simulation, engine_dailydb)
-
+    rbreaker(engine_simulation, engine_dailydb)
 
 def buy_list(df):
     '''
@@ -73,6 +73,10 @@ def sell_list(df):
 
 
 def refresh_holding(engine_simulation, engine_dailydb):
+    '''
+    read existing holding table, get quote for every ticker
+    execute sql to update needed fields.
+    '''
     # read holding table, if False, table not exits - db/read.py
     df_holding = read_table_df_nodrop_Engine('holding',engine_simulation,'ticker')
     # index is ticker, make it a list

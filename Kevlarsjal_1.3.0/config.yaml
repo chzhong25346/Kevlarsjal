@@ -11,3 +11,8 @@ gmail:
   username: "intefalla@gmail.com"
   password: "xxx"
   recipient : "xxx@gmail.com"
+Rbreaker:
+    sub:
+    - tou.to
+    - g.to
+    - acb.to
