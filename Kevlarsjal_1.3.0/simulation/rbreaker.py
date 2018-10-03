@@ -5,9 +5,11 @@ logger = logging.getLogger('main.rbreaker')
 import pandas as pd
 from db.remove import *
 from db.write import *
+from .trade import *
 from db.read import read_table_df_Engine,read_table_df_nodrop_Engine
 
 os.path.dirname(os.path.realpath(__file__))
+
 
 def rbreaker(engine_simulation, engine_dailydb):
     try:
@@ -45,3 +47,21 @@ def rbreaker(engine_simulation, engine_dailydb):
             # write df to sql - write.py
             df_to_sql_prikey('rbreaker',df_rbreaker,engine_simulation,'date')
             logger.debug('updating %s for %s' % (date,ticker))
+            ################ R-Breaker TRADING #############
+            # the previous day df
+            preday = read_table_df_Engine(ticker,engine_dailydb).iloc()[-2]
+            preday_high = preday.high
+            preday_close = preday.close
+            preday_low = preday.low
+            preday_foreseen_buy = preday_low - 0.35 * (preday_high - preday_close)
+            buy_quote = [{ticker:preday_foreseen_buy}]
+            sell_quote = [{ticker:preday_close}]
+            # if buy is possible, foreseen more 2 cents to buy
+            if (low <= preday_foreseen_buy+0.02 <= high):
+                # excute buy order at foreseen buy price
+                execute_order(buy_quote,10000,"buy",engine_simulation)
+                # excute sell order at close price
+                execute_order(sell_quote,10000,"sell",engine_simulation)
+                logger.debug('[%s] - Buy @ %s - Sell @ %s' % (ticker,preday_foreseen_buy,preday_close))
+            else:
+                logger.debug('No opportunity to trade - [%s]', ticker)

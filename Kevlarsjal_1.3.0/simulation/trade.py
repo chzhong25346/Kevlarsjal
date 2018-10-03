@@ -28,7 +28,6 @@ def buy(dict,cap,engine):
     build_holding(dict,engine)
 
 
-
 def sell(dict,cap,engine):
     # if there is already a holding table and found ticker in holding table
     if build_transaction(dict,cap,'sell',engine) is not False:
@@ -100,30 +99,36 @@ def build_holding(dict,engine):
     df_ticker_buy = transaction[(transaction['ticker']==ticker) & (df_ticker['type']=='buy')]
     # sum up quantity of this ticker all of buy and sell records
     qty = df_ticker['quantity'].sum()
-    # average cost each row: sum of (price*qty) / sum of 'qty'
-    avg_cost = sum(df_ticker_buy.price*df_ticker_buy.quantity)/sum(df_ticker_buy.quantity)
-    # market price is the price from quote that is contained in the dict
-    mkt_price = price
-    # book value is average cost times quantity
-    book_value = avg_cost*qty
-    # market value is market price times quantity
-    mkt_value = mkt_price*qty
-    # changes
-    change_dollar = mkt_value - book_value
-    change_percent = (mkt_value/book_value-1)*100
-    # construct holding dictionary
-    dict_holding = {'ticker':ticker,'quantity':qty,'avg_cost':avg_cost,'mkt_price':mkt_price,'book_value':book_value,'mkt_value':mkt_value,'change_dollar':round(change_dollar,2),'change_percent':round(change_percent,2)}
-    # constract holding dataframe from the dictionary
-    df_holding = pd.DataFrame.from_records([dict_holding])
-    # read holding table, if False, table not exits
-    df_existing_holding = read_table_df_nodrop_Engine('holding',engine,'ticker')
-    # table not exists
-    if df_existing_holding is False:
-        # new write new table
-        df_to_sql_prikey('holding',df_holding,engine,'ticker')
-    # table already exists, remove existing row and re-write
+    # if there is nothing holding on
+    if (qty != 0):
+        # average cost each row: sum of (price*qty) / sum of 'qty'
+        avg_cost = sum(df_ticker_buy.price*df_ticker_buy.quantity)/sum(df_ticker_buy.quantity)
+        # market price is the price from quote that is contained in the dict
+        mkt_price = price
+        # book value is average cost times quantity
+        book_value = avg_cost*qty
+        # market value is market price times quantity
+        mkt_value = mkt_price*qty
+        # changes
+        change_dollar = mkt_value - book_value
+        change_percent = (mkt_value/book_value-1)*100
+        # construct holding dictionary
+        dict_holding = {'ticker':ticker,'quantity':qty,'avg_cost':avg_cost,'mkt_price':mkt_price,'book_value':book_value,'mkt_value':mkt_value,'change_dollar':round(change_dollar,2),'change_percent':round(change_percent,2)}
+        # constract holding dataframe from the dictionary
+        df_holding = pd.DataFrame.from_records([dict_holding])
+        # read holding table, if False, table not exits
+        df_existing_holding = read_table_df_nodrop_Engine('holding',engine,'ticker')
+        # table not exists
+        if df_existing_holding is False:
+            # new write new table
+            df_to_sql_prikey('holding',df_holding,engine,'ticker')
+        # table already exists, remove existing row and re-write
+        else:
+            # delete ticker in holding table - remove.py
+            delete_by_fieldValue_Engine('holding','ticker',ticker,engine)
+            # update new rows of this ticker - write.py
+            df_to_sql_prikey('holding',df_holding,engine,'ticker')
+    # if quantity is zero
     else:
-        # delete rows that have specific ticker name in 'ticker' filed - remove.py
+        # delete ticker in holding table - remove.py
         delete_by_fieldValue_Engine('holding','ticker',ticker,engine)
-        # update new rows of this ticker - write.py
-        df_to_sql_prikey('holding',df_holding,engine,'ticker')
