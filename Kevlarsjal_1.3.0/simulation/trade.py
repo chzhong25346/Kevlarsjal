@@ -96,7 +96,7 @@ def build_holding(dict,engine):
     # all rows in specified ticker
     df_ticker = transaction[(transaction['ticker']==ticker)]
     # all rows in specified ticker and type = buy
-    df_ticker_buy = transaction[(transaction['ticker']==ticker) & (df_ticker['type']=='buy')]
+    df_ticker_buy = transaction[(transaction['ticker']==ticker) & (transaction['type']=='buy')]
     # sum up quantity of this ticker all of buy and sell records
     qty = df_ticker['quantity'].sum()
     # if there is nothing holding on
