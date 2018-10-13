@@ -60,5 +60,5 @@ if __name__ == '__main__':
     spendTime = math.ceil((time.time() - start_time)/60)
     sub = 'Task Completed: .. %s %s %s %s' % (index_name,indCode,type,intraday)
     cont = 'Program took ' + str(spendTime) + ' minutes to run'
-    # sendMail(sub,cont)
+    sendMail(sub,cont)
     logger.info(cont)

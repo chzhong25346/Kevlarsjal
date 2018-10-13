@@ -55,7 +55,7 @@ def rbreaker(engine_simulation, engine_dailydb):
             preday_low = preday.low
             preday_foreseen_buy = preday_low - 0.35 * (preday_high - preday_close)
             buy_quote = [{ticker:preday_foreseen_buy}]
-            sell_quote = [{ticker:preday_close}]
+            sell_quote = [{ticker:close}]
             # if buy is possible, foreseen more 2 cents to buy
             if (low <= preday_foreseen_buy+0.02 <= high):
                 # excute buy order at foreseen buy price
