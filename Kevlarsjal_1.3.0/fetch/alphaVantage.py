@@ -6,6 +6,7 @@ from datetime import datetime as dt
 from alpha_vantage.timeseries import TimeSeries
 logger = logging.getLogger('main.alphaVantage')
 
+
 def get_av(ticker,size='compact',today_only=False,intraday='30min'):
     """
     size= compact or full, return df

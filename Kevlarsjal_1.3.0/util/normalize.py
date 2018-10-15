@@ -39,3 +39,13 @@ def groupby_na_to_zero(df, index_name):
     df = df.groupby(index_name).first()
     df.fillna(0, inplace=True)
     return df
+
+
+def normalize_ca_etf(data):
+    '''
+    replace . to -
+    '''
+    data['Symbol'] = data['Symbol'].str.replace(".","-")
+    # drop CGL-C
+    data = data[data.Symbol != 'CLU-C']
+    return data

@@ -16,22 +16,24 @@ logger = logging.getLogger('main.report')
 
 def report(index_name):
     '''
+    report hub function
     '''
     # index table in df
     indexT = get_index_table(index_name)
     # index df to list of symbols
     tickerL = indexT['Symbol'].tolist()
     # daily db engine
-    engine_dailydb = create_dbengine(db=index_name+"_daily_db")
+    engine_dailydb = create_dbengine(db="tsxci_daily_db")
     # report db engine
-    engine_report = create_dbengine(db=index_name+"_report")
-    # temp df for report
-    report_df = pd.DataFrame()
+    engine_report = create_dbengine(db="tsxci_report")
+    # temp df for report with predefined columns
+    report_df = pd.DataFrame(columns=['ticker','52w high','52w low','downtrend','uptrend','pattern','high volume','low volume','Industry'])
     for ticker in tickerL:
         # equity name
         equity = ticker
         # ticker + '.to'
         ticker_to = (ticker+'.to').lower()
+        # print(ticker)
         # industry name & ticker
         ind_df = indexT[(indexT['Symbol']==equity)][['Industry','Symbol']]
         ind_df.columns = ['Industry','ticker']
@@ -55,6 +57,7 @@ def report(index_name):
     report_df = type_to_int(report_df,['pattern','Industry'])
     # tname is today's date
     tname = dt.datetime.today().strftime("%m-%d-%Y")
+    # print(report_df.columns)
     # write df into db
     report_df_to_sql(tname,report_df,engine_report)
     email(tname)

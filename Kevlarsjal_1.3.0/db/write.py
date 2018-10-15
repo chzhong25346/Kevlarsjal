@@ -5,6 +5,7 @@ logger = logging.getLogger('main.write')
 from .mysql import create_dbengine
 from sqlalchemy.types import VARCHAR
 
+
 def df_to_sql(dic,engine):
     '''
     Date is primary key and not null
@@ -21,12 +22,12 @@ def df_to_sql(dic,engine):
                 except Exception as e:
                     logger.error(e)
             else:
-                if(key != 'tsxci'):
+                if(key == 'tsxci' or key == 'ca_etf'):
                     value.to_sql(key, engine, index=True,index_label='date',if_exists='append')
-                    engine.execute('ALTER TABLE `{0}`MODIFY COLUMN `date` datetime NOT NULL FIRST,ADD PRIMARY KEY (`date`);'.format(key))
                     logger.debug('writing table [%s]', key)
                 else:
                     value.to_sql(key, engine, index=True,index_label='date',if_exists='append')
+                    engine.execute('ALTER TABLE `{0}`MODIFY COLUMN `date` datetime NOT NULL FIRST,ADD PRIMARY KEY (`date`);'.format(key))
                     logger.debug('writing table [%s]', key)
 
     except Exception as e:

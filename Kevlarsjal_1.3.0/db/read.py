@@ -18,6 +18,18 @@ def read_table_df(tname):
         return False
 
 
+def read_table_df_eng(tname,engine):
+    '''
+    Read teable return df; index='date'
+    '''
+    try:
+        df = pd.read_sql_table(tname,engine,index_col='date')
+        return df
+    except:
+        logger.debug('Cannot read [%s] table! - continue', tname)
+        return False
+
+
 def read_table_df_Engine(tname,engine):
     '''
     Read teable return df; index='date'; an enginre is required

@@ -2,8 +2,8 @@ import os,sys
 from db.mysql import create_dbengine
 from db.write import df_to_sql
 from fetch.StockIndex import get_index_table
-from util.indCode import get_indCode,indCode_to_tickers
-from util.query_data import get_df_bySec,get_df_byTicker
+from util.indCode import get_indCode, indCode_to_tickers
+from util.query_data import get_df_bySec, get_df_byTicker, fetch_write
 from analysis.report import report
 from simulation.simulator import simulator
 
@@ -16,16 +16,26 @@ def update_all(index_name,intraday,type='compact'):
     compact: today only
     '''
     data = get_index_table(index_name) # All tickers in DF format
-    if (type=='compact' and intraday=='none'):
-        df_dic = get_df_byTicker(data,intraday='none',size='compact',today_only=True,sleep_timer=15)
-    elif (type=='full' and intraday=='none'):
-        df_dic = get_df_byTicker(data,intraday='none',size='full',today_only=False,sleep_timer=15)
-    elif (type=='compact' and intraday !='none'):
-        df_dic = get_df_byTicker(data,intraday,size='compact',today_only=True,sleep_timer=15)
-    elif (type=='full' and intraday !='none'):
-        df_dic = get_df_byTicker(data,intraday,size='full',today_only=False,sleep_timer=15)
-    else:
-        pass
+    # Use old function 'get_df_byTicker' ) NO index_name
+    if (index_name == 'tsxci'):
+        if (type=='compact' and intraday=='none'):
+            df_dic = get_df_byTicker(data,intraday='none',size='compact',today_only=True,sleep_timer=15)
+        elif (type=='full' and intraday=='none'):
+            df_dic = get_df_byTicker(data,intraday='none',size='full',today_only=False,sleep_timer=15)
+        elif (type=='compact' and intraday !='none'):
+            df_dic = get_df_byTicker(data,intraday,size='compact',today_only=True,sleep_timer=15)
+        elif (type=='full' and intraday !='none'):
+            df_dic = get_df_byTicker(data,intraday,size='full',today_only=False,sleep_timer=15)
+        else:
+            pass
+    # New function is called "fetch_write" for ca_etf
+    elif (index_name == 'ca_etf'):
+        if (type=='compact' and intraday=='none'):
+            df_dic = fetch_write(index_name,data,intraday='none',size='compact',today_only=True,sleep_timer=15)
+        elif (type=='full' and intraday=='none'):
+            df_dic = fetch_write(index_name,data,intraday='none',size='full',today_only=False,sleep_timer=15)
+        else:
+            pass
 
 
 def update_by_industry(index_name,indCode,intraday,type='full'):
