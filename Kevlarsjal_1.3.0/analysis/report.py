@@ -27,7 +27,9 @@ def report(index_name):
     # report db engine
     engine_report = create_dbengine(db="tsxci_report")
     # temp df for report with predefined columns
-    report_df = pd.DataFrame(columns=['ticker','52w high','52w low','downtrend','uptrend','pattern','high volume','low volume','Industry'])
+    columns=['ticker','52w high','52w low','downtrend','uptrend','pattern','high volume','low volume','Industry']
+    dtypes =['str','int','int','int','int','str','int','int','str']
+    report_df = df_empty(columns, dtypes)
     for ticker in tickerL:
         # equity name
         equity = ticker
@@ -54,13 +56,13 @@ def report(index_name):
     # grouby using first() and NaN to Zero
     report_df = groupby_na_to_zero(report_df, 'ticker')
     # pass columns don't want to be type(int), industry must exist after the loop above
-    report_df = type_to_int(report_df,['pattern','Industry'])
+    # report_df = type_to_int(report_df,['pattern','Industry'])
     # tname is today's date
     tname = dt.datetime.today().strftime("%m-%d-%Y")
     # print(report_df.columns)
     # write df into db
     report_df_to_sql(tname,report_df,engine_report)
-    email(tname)
+    # email(tname)
 
 
 
@@ -68,3 +70,11 @@ def email(tname):
     sub = 'Report ready for %s' % (tname)
     cont = 'table is %s' % (tname)
     sendMail(sub,cont)
+
+
+def df_empty(columns, dtypes, index=None):
+    assert len(columns)==len(dtypes)
+    df = pd.DataFrame(index=index)
+    for c,d in zip(columns, dtypes):
+        df[c] = pd.Series(dtype=d)
+    return df

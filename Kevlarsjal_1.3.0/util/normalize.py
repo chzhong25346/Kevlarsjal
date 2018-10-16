@@ -28,6 +28,7 @@ def type_to_int(df,removeItem):
         columnL = [x for x in columnL if (x not in removeItem)]
     df[columnL].apply(lambda x: x.astype('int'))
     df[removeItem] = saved_series
+    print(df.dtypes)
     return df
 
 
